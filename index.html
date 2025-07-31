@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nafe Abubaker | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'raleway': ['Raleway', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+            transform: rotate(30deg);
+            z-index: -1;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .skill-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            width: 1px;
+            height: calc(100% + 25px);
+            background: var(--primary);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e2e8f0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary">N.A<span class="text-secondary">.</span></a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-primary">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-primary">About</a>
+                    <a href="#skills" class="nav-link text-gray-600 hover:text-primary">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-600 hover:text-primary">Projects</a>
+                    <a href="#education" class="nav-link text-gray-600 hover:text-primary">Education</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-primary">Contact</a>
+                </div>
+                
+                <a href="#contact" class="hidden md:block px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-medium hover:opacity-90 transition">Hire </a>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white">
+            <div class="px-4 py-5 flex flex-col space-y-4">
+                <a href="#home" class="nav-link text-gray-600 hover:text-primary">Home</a>
+                <a href="#about" class="nav-link text-gray-600 hover:text-primary">About</a>
+                <a href="#skills" class="nav-link text-gray-600 hover:text-primary">Skills</a>
+                <a href="#projects" class="nav-link text-gray-600 hover:text-primary">Projects</a>
+                <a href="#education" class="nav-link text-gray-600 hover:text-primary">Education</a>
+                <a href="#contact" class="nav-link text-gray-600 hover:text-primary">Contact</a>
+                <a href="#contact" class="px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-medium text-center">Hire Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-primary">Nafe Abubaker</span></h1>
+                <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">Computer Engineering Graduate</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-lg">A dedicated Computer Engineering graduate from Birzeit University with hands-on experience through technical training, pursuing opportunities to contribute to impactful projects and further develop my expertise.</p>
+                <div class="flex space-x-4">
+                    <a href="#projects" class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-medium hover:opacity-90 transition">View Projects</a>
+                    <a href="#contact" class="px-8 py-3 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-white transition">Contact Me</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                        <img src="https://i.ibb.co/9H9mDBP8/n.jpg" alt="Nafe Abubaker" class="w-full h-full object-cover">
+                    </div>
+                    </div>
+                    <div class="absolute -top-4 -left-4 bg-primary text-white p-3 rounded-full">
+                        <i class="fas fa-code text-xl"></i>
+                    </div>
+                    <div class="absolute top-20 -right-10 bg-secondary text-white p-3 rounded-full floating">
+                        <i class="fas fa-star text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">About <span class="text-primary">Me</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-full">
+                    <h3 class="text-2xl font-bold mb-4">A Passionate Developer Ready for New Challenges</h3>
+                    <p class="text-gray-600 mb-6">
+                        Hello! I'm Nafe Abubaker, a dedicated Computer Engineering graduate from Birzeit University (B.Sc., July 2025). Having gained hands-on experience through internships and technical training at ASAL Technologies, I'm now pursuing entry-level opportunities to contribute to impactful projects, collaborate with multidisciplinary teams, and further develop my expertise in a professional setting.
+                    </p>
+ 
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <p class="font-bold mb-1">Name:</p>
+                            <p class="text-gray-600">Nafe Abubaker</p>
+                        </div>
+                        <div>
+                            <p class="font-bold mb-1">Email:</p>
+                            <p class="text-gray-600">nafeabubaker@gmail.com</p>
+                        </div>
+                        <div>
+                            <p class="font-bold mb-1">From:</p>
+                            <p class="text-gray-600">Palestine, Ramallah</p>
+                        </div>
+                        <div>
+                            <p class="font-bold mb-1">Degree:</p>
+                            <p class="text-gray-600">B.S. Computer Engineering</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-primary">Skills</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Technical Skills -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-center">Technical Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>C/C#/Java/Python</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Verilog/SystemVerilog</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>SQL/MongoDB</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>RESTful APIs/.NET Core</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>MIPS/x86 Assembly</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Soft Skills -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-center">Soft Skills</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-comments text-primary text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Communication</h4>
+                            <p class="text-gray-600">Clear articulation of ideas and active listening</p>
+                        </div>
+                        
+                        <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-lightbulb text-primary text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Problem Solving</h4>
+                            <p class="text-gray-600">Analytical approach to complex challenges</p>
+                        </div>
+                        
+                        <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-users text-primary text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Teamwork</h4>
+                            <p class="text-gray-600">Collaborative and supportive team player</p>
+                        </div>
+                        
+                        <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-tasks text-primary text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Time Management</h4>
+                            <p class="text-gray-600">Efficient prioritization and deadline adherence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-primary">Projects</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="overflow-hidden">
+                        <div class="project-image h-48 bg-gray-200">
+                            <img src="https://ibb.co/PvrF0wHd"><img src="https://i.ibb.co/67yrLgCk/palstorehub.png" alt="palstorehub" alt="Project" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">PalStoreHub</h3>
+                        <p class="text-gray-600 mb-4">A full-stack, multi-vendor e-commerce platform that lets Palestinian entrepreneurs spin up their own online stores and list products from a single hub. Also allows tourists to discover various stores in palestine.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">React</span>
+                            <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">.Net</span>
+                            <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">MongoDB</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/Abubaker-Nafe/PalStoreHub" class="text-primary font-medium hover:underline">GitHub →</a>
+                            <a href="https://palstorehub.azurewebsites.net/" class="text-primary font-medium hover:underline">Website →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="overflow-hidden">
+                        <div class="project-image h-48 bg-gray-200">
+                            <img src="https://ibb.co/TDz5kjrX"><img src="https://i.ibb.co/p6CpxVnD/to-explain-from.png" alt="to-explain-from" alt="Project" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Traffic Light Management & Violation Detection</h3>
+                        <p class="text-gray-600 mb-4">Capstone project processing drone videos at 30 FPS using YOLOv8 + SORT tracking to detect vehicles and traffic-light states. Implemented congestion metrics, adaptive signal timing (25% queue reduction in tests), and red-light violation detection. Results were showin on a website Built with FastAPI backend and React dashboard.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">Computer Vision</span>
+                            <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">YOLOv8</span>
+                            <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">MongoDB</span>
+                        </div>
+                        <a href="https://github.com/Abubaker-Nafe/Traffic-Management-and-Red-Light-Violation" class="text-primary font-medium hover:underline">GitHub →</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://github.com/Abubaker-Nafe?tab=repositories" target="_blank" class="px-6 py-3 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-white transition">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-primary">Education</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- Education Timeline -->
+                <div class="relative">
+                    <!-- Timeline item 1 -->
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">Birzeit University</h3>
+                                <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">2021-2025</span>
+                            </div>
+                            <p class="text-secondary font-medium mb-3">Bachelor of Computer Engineering</p>
+                            <p class="text-gray-600">Relevant coursework: Operating Systems, Database Systems, Data Structures, Object-Oriented Programming, Embedded Systems, Software Engineering.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline item 2 -->
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">ASAL Technologies</h3>
+                                <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">Sep 2024 - Feb 2025</span>
+                            </div>
+                            <p class="text-secondary font-medium mb-3">Backend Engineering Training Program</p>
+                            <p class="text-gray-600">Developed RESTful APIs using C#/.NET Core, integrated MongoDB for database operations, and collaborated with cross-functional teams to build scalable backend solutions.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline item 3 -->
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">ASAL Technologies</h3>
+                                <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">Feb 2025 - Jul 2025</span>
+                            </div>
+                            <p class="text-secondary font-medium mb-3">Data Engineering Training Program</p>
+                            <p class="text-gray-600">Built ETL pipelines with Python/Prefect, processed NDJSON/CSV data from AWS S3, implemented data validation with Pydantic, and created aggregation reports with MongoDB and Pandas dashboards.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span class="text-primary">Touch</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nafe Abubaker">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nafe@example.com">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Project Inquiry">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Hello Nafe..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-medium hover:opacity-90 transition">Send Message</button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <p class="text-gray-600 mb-8">I'm currently available for freelance work and full-time positions. Feel free to reach out to discuss potential opportunities or just to say hello!</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Location</h4>
+                                <p class="text-gray-600">Palestine, Ramallah</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p class="text-gray-600">nafeabubaker@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Phone</h4>
+                                <p class="text-gray-600">+972-597785625</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <h4 class="font-bold mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://www.linkedin.com/in/nafe-abubaker-0182a5298/" target="_blank" class="social-icon w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary hover:text-white">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/Abubaker-Nafe" target="_blank" class="social-icon w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary hover:text-white">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-white">AM<span class="text-secondary">.</span></a>
+                    <p class="mt-2 text-gray-400">Crafting digital experiences with passion</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#home" class="text-gray-400 hover:text-white">Home</a>
+                    <a href="#about" class="text-gray-400 hover:text-white">About</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white">Projects</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white">Contact</a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2025 Nafe Abubaker. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary text-white shadow-lg hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animate progress bars when scrolled into view
+        const progressBars = document.querySelectorAll('.progress-fill');
+        
+        const animateProgressBars = () => {
+            progressBars.forEach(bar => {
+                const barPosition = bar.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (barPosition < screenPosition) {
+                    // Width is already set inline, so animation happens via CSS transition
+                    bar.style.opacity = 1;
+                }
+            });
+        };
+        
+        // Initial check
+        animateProgressBars();
+        
+        // Check on scroll
+        window.addEventListener('scroll', animateProgressBars);
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=NAbubaker/portfolio" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p><p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=NAbubaker/nabubaker" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
