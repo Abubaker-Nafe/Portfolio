@@ -3,8 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nafe Abubaker - Computer Engineering graduate. Projects: PalStoreHub, Traffic Light Management, and more. Available for hire.">
-    <title>Nafe Abubaker | Portfolio</title>
+    <meta name="description" content="Nafe Abubaker - Computer Engineering graduate specializing in full-stack development, AI/ML, and data engineering. Available for hire.">
+    <meta name="keywords" content="Computer Engineering, Full Stack Developer, React, .NET, MongoDB, Python, Machine Learning, Data Engineering, Palestine">
+    <meta name="author" content="Nafe Abubaker">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourportfolio.com/">
+    <meta property="og:title" content="Nafe Abubaker | Computer Engineering Graduate & Full Stack Developer">
+    <meta property="og:description" content="Computer Engineering graduate specializing in full-stack development, AI/ML, and data engineering. Available for hire.">
+    <meta property="og:image" content="https://i.ibb.co/9H9mDBP8/n.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourportfolio.com/">
+    <meta property="twitter:title" content="Nafe Abubaker | Computer Engineering Graduate & Full Stack Developer">
+    <meta property="twitter:description" content="Computer Engineering graduate specializing in full-stack development, AI/ML, and data engineering. Available for hire.">
+    <meta property="twitter:image" content="https://i.ibb.co/9H9mDBP8/n.jpg">
+    
+    <title>Nafe Abubaker | Computer Engineering Graduate & Full Stack Developer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="data:application/json,{%22name%22:%22Nafe%20Abubaker%20Portfolio%22,%22short_name%22:%22Nafe%20Portfolio%22,%22description%22:%22Computer%20Engineering%20Graduate%20Portfolio%22,%22start_url%22:%22/%22,%22display%22:%22standalone%22,%22background_color%22:%22%23f8fafc%22,%22theme_color%22:%22%236366f1%22,%22icons%22:[{%22src%22:%22data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>%22,%22sizes%22:%22192x192%22,%22type%22:%22image/svg+xml%22}]}">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    
+    <!-- Additional SEO Tags -->
+    <link rel="canonical" href="https://yourportfolio.com/">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Nafe Portfolio">
     
     <!-- Preconnect for fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +64,7 @@
         })();
         
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -40,6 +76,30 @@
                     fontFamily: {
                         'poppins': ['Poppins', 'sans-serif'],
                         'raleway': ['Raleway', 'sans-serif']
+                    },
+                    animation: {
+                        'typing': 'typing 3.5s steps(30, end), blink-caret .75s step-end infinite',
+                        'fade-in': 'fadeIn 0.5s ease-in',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        typing: {
+                            from: { width: '0' },
+                            to: { width: '100%' }
+                        },
+                        'blink-caret': {
+                            'from, to': { 'border-color': 'transparent' },
+                            '50%': { 'border-color': '#6366f1' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
                     }
                 }
             }
@@ -66,6 +126,117 @@
             background-color: var(--light);
             color: var(--dark);
             scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Dark mode styles */
+        .dark body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .dark .hero {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+        }
+        
+        .typing-container {
+            overflow: hidden;
+            border-right: 3px solid #6366f1;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #6366f1 }
+        }
+        
+        .theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background-color: #e5e7eb;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .theme-toggle.dark {
+            background-color: #374151;
+        }
+        
+        .theme-toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .theme-toggle.dark .theme-toggle-slider {
+            transform: translateX(30px);
+            background-color: #1f2937;
+            color: #fbbf24;
+        }
+        
+        /* Dark mode for components */
+        .dark .bg-white {
+            background-color: #1e293b !important;
+            color: #e2e8f0 !important;
+        }
+        
+        .dark .text-gray-600 {
+            color: #94a3b8 !important;
+        }
+        
+        .dark .text-gray-700 {
+            color: #cbd5e1 !important;
+        }
+        
+        .dark .border-gray-300 {
+            border-color: #475569 !important;
+        }
+        
+        .dark .bg-gray-50 {
+            background-color: #0f172a !important;
+        }
+        
+        .dark .bg-gray-100 {
+            background-color: #334155 !important;
+        }
+        
+        .dark .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .dark .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .dark nav {
+            background-color: rgba(15, 23, 42, 0.9) !important;
+            backdrop-filter: blur(8px);
+        }
+        
+        .dark #mobile-menu {
+            background-color: #1e293b !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #475569 !important;
         }
         
         h1, h2, h3, h4 {
@@ -296,6 +467,194 @@
                 transition: none !important;
             }
         }
+
+        /* Enhanced project card animations with 3D hover effects */
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.05) translateZ(20px);
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+        
+        /* Enhanced skills progress bars with animation */
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e2e8f0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+            position: relative;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Enhanced form validation styles */
+        .form-group {
+            position: relative;
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+        
+        .form-input.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+        }
+        
+        .form-input.success {
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+        
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .error-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .success-message {
+            color: #10b981;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .success-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Copy email button styles */
+        .copy-email-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 0.5rem;
+        }
+        
+        .copy-email-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+        
+        .copy-email-btn:active {
+            transform: translateY(0);
+        }
+        
+        .copy-email-btn.copied {
+            background: #10b981;
+        }
+        
+        /* Dark mode adjustments for new elements */
+        .dark .back-to-top {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+        
+        .dark .progress-bar {
+            background: #374151;
+        }
+        
+        .dark .form-input.error {
+            border-color: #f87171;
+        }
+        
+        .dark .form-input.success {
+            border-color: #34d399;
+        }
+        
+        .dark .error-message {
+            color: #f87171;
+        }
+        
+        .dark .success-message {
+            color: #34d399;
+        }
     </style>
 </head>
 <body>
@@ -303,6 +662,11 @@
     <div id="notification" class="notification" role="status" aria-live="polite">
         <span id="notification-message"></span>
     </div>
+    
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
     
     <!-- Navigation -->
     <nav class="fixed w-full bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-sm">
@@ -322,7 +686,16 @@
                     <a href="#contact" class="nav-link text-gray-600 hover:text-primary">Contact</a>
                 </div>
                 
-                <a href="#contact" class="hidden md:block px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-medium hover:opacity-90 transition">Hire Me</a>
+                <div class="hidden md:flex items-center space-x-4">
+                    <!-- Theme Toggle -->
+                    <div class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <div class="theme-toggle-slider">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-medium hover:opacity-90 transition">Hire Me</a>
+                </div>
                 
                 <!-- Mobile menu button -->
                 <button id="mobile-menu-button" type="button" aria-label="Toggle navigation" class="md:hidden text-gray-600">
@@ -340,6 +713,17 @@
                 <a href="#projects" class="nav-link text-gray-600 hover:text-primary">Projects</a>
                 <a href="#education" class="nav-link text-gray-600 hover:text-primary">Education</a>
                 <a href="#contact" class="nav-link text-gray-600 hover:text-primary">Contact</a>
+                
+                <!-- Mobile Theme Toggle -->
+                <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <span class="text-gray-600">Dark Mode</span>
+                    <div class="theme-toggle mobile-theme-toggle" id="mobile-theme-toggle" aria-label="Toggle dark mode">
+                        <div class="theme-toggle-slider">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                    </div>
+                </div>
+                
                 <a href="#contact" class="px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-medium text-center">Hire Me</a>
             </div>
         </div>
@@ -349,9 +733,11 @@
     <section id="home" class="hero pt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-12 md:mb-0">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-primary">Nafe Abubaker</span></h1>
-                <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">Computer Engineering Graduate</h2>
-                <p class="text-lg text-gray-600 mb-8 max-w-lg">A dedicated Computer Engineering graduate from Birzeit University with hands-on experience through technical training, pursuing opportunities to contribute to impactful projects and further develop my expertise.</p>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-slide-up">Hi, I'm <span class="text-primary">Nafe Abubaker</span></h1>
+                <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">
+                    <span class="typing-container inline-block">Computer Engineering Graduate</span>
+                </h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-lg animate-fade-in">A dedicated Computer Engineering graduate from Birzeit University with hands-on experience through technical training, pursuing opportunities to contribute to impactful projects and further develop my expertise.</p>
                 <div class="flex space-x-4">
                     <a href="#projects" class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-medium hover:opacity-90 transition">View Projects</a>
                     <a href="#contact" class="px-8 py-3 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-white transition">Contact Me</a>
@@ -431,7 +817,7 @@
                                 <span>90%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 90%"></div>
+                                <div class="progress-fill" data-width="90%"></div>
                             </div>
                         </div>
                         
@@ -441,7 +827,7 @@
                                 <span>85%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 85%"></div>
+                                <div class="progress-fill" data-width="85%"></div>
                             </div>
                         </div>
                         
@@ -451,7 +837,7 @@
                                 <span>90%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 90%"></div>
+                                <div class="progress-fill" data-width="90%"></div>
                             </div>
                         </div>
                         
@@ -461,7 +847,7 @@
                                 <span>90%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 90%"></div>
+                                <div class="progress-fill" data-width="90%"></div>
                             </div>
                         </div>
                         
@@ -471,7 +857,7 @@
                                 <span>80%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 80%"></div>
+                                <div class="progress-fill" data-width="80%"></div>
                             </div>
                         </div>
                     </div>
@@ -558,7 +944,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">Traffic Light Management & Violation Detection</h3>
-                        <p class="text-gray-600 mb-4">Capstone project processing drone videos at 30 FPS using YOLOv8 + SORT tracking to detect vehicles and traffic-light states. Implemented congestion metrics, adaptive signal timing (25% queue reduction in tests), and red-light violation detection. Results were showin on a website Built with FastAPI backend and React dashboard.</p>
+                        <p class="text-gray-600 mb-4">Capstone project processing drone videos at 30 FPS using YOLOv8 + SORT tracking to detect vehicles and traffic-light states. Implemented congestion metrics, adaptive signal timing (25% queue reduction in tests), and red-light violation detection. Results were shown on a website built with FastAPI backend and React dashboard.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">Computer Vision</span>
                             <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">YOLOv8</span>
@@ -568,6 +954,8 @@
                     </div>
                 </div>
                 
+
+                
             </div>
             
             <div class="text-center mt-12">
@@ -576,8 +964,10 @@
         </div>
     </section>
 
+
+
     <!-- Education Section -->
-    <section id="education" class="py-20 bg-gray-50">
+    <section id="education" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-primary">Education</span></h2>
@@ -639,24 +1029,28 @@
                 <!-- Contact Form -->
                 <div class="contact-form">
                     <form id="contact-form" class="space-y-6">
-                        <div>
+                        <div class="form-group">
                             <label for="name" class="block text-gray-700 mb-2">Your Name</label>
-                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nafe Abubaker">
+                            <input type="text" id="name" name="name" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nafe Abubaker">
+                            <div class="error-message" id="name-error"></div>
                         </div>
                         
-                        <div>
+                        <div class="form-group">
                             <label for="email" class="block text-gray-700 mb-2">Email Address</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nafe@example.com">
+                            <input type="email" id="email" name="email" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nafe@example.com">
+                            <div class="error-message" id="email-error"></div>
                         </div>
                         
-                        <div>
+                        <div class="form-group">
                             <label for="subject" class="block text-gray-700 mb-2">Subject</label>
-                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Project Inquiry">
+                            <input type="text" id="subject" name="subject" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Project Inquiry">
+                            <div class="error-message" id="subject-error"></div>
                         </div>
                         
-                        <div>
+                        <div class="form-group">
                             <label for="message" class="block text-gray-700 mb-2">Your Message</label>
-                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Hello Nafe..."></textarea>
+                            <textarea id="message" name="message" rows="5" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Hello Nafe..."></textarea>
+                            <div class="error-message" id="message-error"></div>
                         </div>
                         
                         <button type="submit" id="submit-btn" class="w-full px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-medium hover:opacity-90 transition">
@@ -689,6 +1083,10 @@
                             <div>
                                 <h4 class="font-bold mb-1">Email</h4>
                                 <p class="text-gray-600">nafeabubaker@gmail.com</p>
+                                <button class="copy-email-btn" id="copy-email-btn" data-email="nafeabubaker@gmail.com">
+                                    <i class="fas fa-copy mr-1"></i>
+                                    <span id="copy-text">Copy</span>
+                                </button>
                             </div>
                         </div>
                         
@@ -777,6 +1175,57 @@
     </script>
 
     <script>
+        // Dark Mode Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        if (currentTheme === 'dark') {
+            html.classList.add('dark');
+            updateThemeToggle(true);
+        }
+        
+        function updateThemeToggle(isDark) {
+            const toggles = [themeToggle, mobileThemeToggle];
+            toggles.forEach(toggle => {
+                if (toggle) {
+                    const slider = toggle.querySelector('.theme-toggle-slider');
+                    const icon = slider.querySelector('i');
+                    
+                    if (isDark) {
+                        toggle.classList.add('dark');
+                        icon.className = 'fas fa-moon';
+                    } else {
+                        toggle.classList.remove('dark');
+                        icon.className = 'fas fa-sun';
+                    }
+                }
+            });
+        }
+        
+        function toggleTheme() {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                updateThemeToggle(false);
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                updateThemeToggle(true);
+            }
+        }
+        
+        // Add event listeners for theme toggle
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+        if (mobileThemeToggle) {
+            mobileThemeToggle.addEventListener('click', toggleTheme);
+        }
+        
         // Mobile Menu Toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -826,7 +1275,7 @@
             });
         });
         
-        // Animate progress bars when scrolled into view
+        // Enhanced progress bar animation function
         const progressBars = document.querySelectorAll('.progress-fill');
         
         const animateProgressBars = () => {
@@ -835,7 +1284,8 @@
                 const screenPosition = window.innerHeight / 1.3;
                 
                 if (barPosition < screenPosition) {
-                    // Width is already set inline, so animation happens via CSS transition
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width;
                     bar.style.opacity = 1;
                 }
             });
@@ -847,6 +1297,31 @@
         // Check on scroll
         window.addEventListener('scroll', animateProgressBars);
         
+        // Scroll animations using Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-up');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.skill-card, .project-card, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Add staggered animation to project cards
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+        
         // EmailJS Functionality
         const contactForm = document.getElementById('contact-form');
         const submitBtn = document.getElementById('submit-btn');
@@ -855,8 +1330,119 @@
         const notification = document.getElementById('notification');
         const notificationMessage = document.getElementById('notification-message');
         
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        // Copy email functionality
+        const copyEmailBtn = document.getElementById('copy-email-btn');
+        const copyText = document.getElementById('copy-text');
+        
+        copyEmailBtn.addEventListener('click', async () => {
+            const email = copyEmailBtn.getAttribute('data-email');
+            
+            try {
+                await navigator.clipboard.writeText(email);
+                copyText.textContent = 'Copied!';
+                copyEmailBtn.classList.add('copied');
+                
+                setTimeout(() => {
+                    copyText.textContent = 'Copy';
+                    copyEmailBtn.classList.remove('copied');
+                }, 2000);
+                
+                showNotification('Email copied to clipboard!', 'success');
+            } catch (err) {
+                showNotification('Failed to copy email', 'error');
+            }
+        });
+        
+        // Enhanced form validation
+        const formInputs = document.querySelectorAll('.form-input');
+        
+        formInputs.forEach(input => {
+            const errorElement = document.getElementById(`${input.id}-error`);
+            
+            input.addEventListener('blur', () => {
+                validateField(input, errorElement);
+            });
+            
+            input.addEventListener('input', () => {
+                if (input.classList.contains('error')) {
+                    validateField(input, errorElement);
+                }
+            });
+        });
+        
+        function validateField(input, errorElement) {
+            const value = input.value.trim();
+            let isValid = true;
+            let errorMessage = '';
+            
+            // Remove previous classes
+            input.classList.remove('error', 'success');
+            errorElement.classList.remove('show');
+            
+            // Validation rules
+            if (input.required && !value) {
+                isValid = false;
+                errorMessage = 'This field is required';
+            } else if (input.type === 'email' && value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    isValid = false;
+                    errorMessage = 'Please enter a valid email address';
+                }
+            } else if (input.id === 'name' && value) {
+                if (value.length < 2) {
+                    isValid = false;
+                    errorMessage = 'Name must be at least 2 characters long';
+                }
+            } else if (input.id === 'message' && value) {
+                if (value.length < 10) {
+                    isValid = false;
+                    errorMessage = 'Message must be at least 10 characters long';
+                }
+            }
+            
+            // Apply validation result
+            if (!isValid) {
+                input.classList.add('error');
+                errorElement.textContent = errorMessage;
+                errorElement.classList.add('show');
+            } else if (value) {
+                input.classList.add('success');
+            }
+            
+            return isValid;
+        }
+        
+        // Enhanced form submission with validation
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Validate all fields
+            let isFormValid = true;
+            const formInputs = document.querySelectorAll('.form-input');
+            
+            formInputs.forEach(input => {
+                const errorElement = document.getElementById(`${input.id}-error`);
+                if (!validateField(input, errorElement)) {
+                    isFormValid = false;
+                }
+            });
+            
+            if (!isFormValid) {
+                showNotification('Please fix the errors in the form', 'error');
+                return;
+            }
             
             // Show loading spinner
             buttonText.textContent = 'Sending...';
@@ -878,8 +1464,13 @@
                     showNotification('Message sent successfully!', 'success');
                     console.log('SUCCESS!', response.status, response.text);
                     
-                    // Reset form
+                    // Reset form and validation states
                     contactForm.reset();
+                    formInputs.forEach(input => {
+                        input.classList.remove('error', 'success');
+                        const errorElement = document.getElementById(`${input.id}-error`);
+                        errorElement.classList.remove('show');
+                    });
                 }, function(error) {
                     // Error notification
                     showNotification('Failed to send message. Please try again.', 'error');
