@@ -3,11 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nafe Abubaker - Computer Engineering graduate. Projects: PalStoreHub, Traffic Light Management, and more. Available for hire.">
     <title>Nafe Abubaker | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome (optimized) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <!-- Tailwind Config -->
     <script>
         (function() {
             emailjs.init("v9aQo-MM8x3JLGIrs");
@@ -30,6 +45,8 @@
             }
         }
     </script>
+    
+    <!-- Custom Styles -->
     <style>
         :root {
             --primary: #6366f1;
@@ -215,12 +232,14 @@
             font-weight: 500;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             transform: translateX(120%);
-            transition: transform 0.3s ease-out;
+            opacity: 0;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
             z-index: 1000;
         }
         
         .notification.show {
             transform: translateX(0);
+            opacity: 1;
         }
         
         .notification.success {
@@ -250,11 +269,38 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+        
+        /* Accessibility improvements */
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+        
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            
+            .floating {
+                animation: none !important;
+            }
+            
+            .progress-fill {
+                transition: none !important;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Notification Container -->
-    <div id="notification" class="notification hidden">
+    <div id="notification" class="notification" role="status" aria-live="polite">
         <span id="notification-message"></span>
     </div>
     
@@ -279,7 +325,7 @@
                 <a href="#contact" class="hidden md:block px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-medium hover:opacity-90 transition">Hire Me</a>
                 
                 <!-- Mobile menu button -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                <button id="mobile-menu-button" type="button" aria-label="Toggle navigation" class="md:hidden text-gray-600">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -314,7 +360,7 @@
             <div class="md:w-1/2 flex justify-center">
                 <div class="relative">
                     <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                        <img src="https://i.ibb.co/9H9mDBP8/n.jpg" alt="Nafe Abubaker" class="w-full h-full object-cover">
+                        <img src="https://i.ibb.co/9H9mDBP8/n.jpg" alt="Nafe Abubaker - Computer Engineering Graduate" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute -top-4 -left-4 bg-primary text-white p-3 rounded-full">
                         <i class="fas fa-code text-xl"></i>
@@ -412,10 +458,10 @@
                         <div>
                             <div class="flex justify-between mb-2">
                                 <span>RESTful APIs/.NET Core</span>
-                                <span>85%</span>
+                                <span>90%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 85%"></div>
+                                <div class="progress-fill" style="width: 90%"></div>
                             </div>
                         </div>
                         
@@ -485,7 +531,7 @@
                 <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
                     <div class="overflow-hidden">
                         <div class="project-image h-48 bg-gray-200">
-                            <img src="https://i.ibb.co/67yrLgCk/palstorehub.png" alt="palstorehub" alt="Project" class="w-full h-full object-cover">
+                            <img src="https://i.ibb.co/67yrLgCk/palstorehub.png" alt="PalStoreHub - Multi-vendor e-commerce platform" class="w-full h-full object-cover" loading="lazy">
                         </div>
                     </div>
                     <div class="p-6">
@@ -497,8 +543,8 @@
                             <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">MongoDB</span>
                         </div>
                         <div class="flex space-x-4">
-                            <a href="https://github.com/Abubaker-Nafe/PalStoreHub" class="text-primary font-medium hover:underline">GitHub →</a>
-                            <a href="https://palstorehub.azurewebsites.net/" class="text-primary font-medium hover:underline">Website →</a>
+                            <a href="https://github.com/Abubaker-Nafe/PalStoreHub" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">GitHub →</a>
+                            <a href="https://palstorehub.azurewebsites.net/" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">Website →</a>
                         </div>
                     </div>
                 </div>
@@ -507,7 +553,7 @@
                 <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
                     <div class="overflow-hidden">
                         <div class="project-image h-48 bg-gray-200">
-                            <img src="https://i.ibb.co/p6CpxVnD/to-explain-from.png" alt="to-explain-from" alt="Project" class="w-full h-full object-cover">
+                            <img src="https://i.ibb.co/p6CpxVnD/to-explain-from.png" alt="Traffic Light Management System" class="w-full h-full object-cover" loading="lazy">
                         </div>
                     </div>
                     <div class="p-6">
@@ -518,14 +564,14 @@
                             <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">YOLOv8</span>
                             <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">MongoDB</span>
                         </div>
-                        <a href="https://github.com/Abubaker-Nafe/Traffic-Management-and-Red-Light-Violation" class="text-primary font-medium hover:underline">GitHub →</a>
+                        <a href="https://github.com/Abubaker-Nafe/Traffic-Management-and-Red-Light-Violation" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">GitHub →</a>
                     </div>
                 </div>
                 
             </div>
             
             <div class="text-center mt-12">
-                <a href="https://github.com/Abubaker-Nafe?tab=repositories" target="_blank" class="px-6 py-3 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-white transition">View All Projects</a>
+                <a href="https://github.com/Abubaker-Nafe?tab=repositories" target="_blank" rel="noopener noreferrer" class="px-6 py-3 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-white transition">View All Projects</a>
             </div>
         </div>
     </section>
@@ -660,10 +706,10 @@
                     <div class="mt-10">
                         <h4 class="font-bold mb-4">Follow Me</h4>
                         <div class="flex space-x-4">
-                            <a href="https://www.linkedin.com/in/nafe-abubaker-0182a5298/" target="_blank" class="social-icon w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary hover:text-white">
+                            <a href="https://www.linkedin.com/in/nafe-abubaker-0182a5298/" target="_blank" rel="noopener noreferrer" class="social-icon w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary hover:text-white">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="https://github.com/Abubaker-Nafe" target="_blank" class="social-icon w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary hover:text-white">
+                            <a href="https://github.com/Abubaker-Nafe" target="_blank" rel="noopener noreferrer" class="social-icon w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary hover:text-white">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -697,9 +743,38 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary text-white shadow-lg hidden">
+    <button id="backToTop" type="button" aria-label="Back to top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary text-white shadow-lg hidden">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nafe Abubaker",
+      "url": "https://yourportfolio.com",
+      "image": "https://i.ibb.co/9H9mDBP8/n.jpg",
+      "sameAs": [
+        "https://github.com/Abubaker-Nafe",
+        "https://www.linkedin.com/in/nafe-abubaker-0182a5298/"
+      ],
+      "jobTitle": "Computer Engineering Graduate",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Birzeit University"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ramallah",
+        "addressRegion": "Palestine"
+      }
+    }
+    </script>
 
     <script>
         // Mobile Menu Toggle
