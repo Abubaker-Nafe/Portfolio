@@ -655,9 +655,27 @@
         .dark .success-message {
             color: #34d399;
         }
+
+        /* Scroll progress bar (robust) */
+        #scroll-progress {
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 4px;
+          width: 0%;
+          z-index: 2147483647; /* stays above everything */
+          background: linear-gradient(90deg, var(--primary), var(--secondary));
+          transition: width 0.1s linear;
+          pointer-events: none; /* never blocks clicks */
+        }
+        @media (prefers-reduced-motion: reduce) {
+          #scroll-progress { transition: none; }
+        }
     </style>
 </head>
 <body>
+<!-- Scroll progress bar -->
+<div id="scroll-progress" aria-hidden="true"></div>
     <!-- Notification Container -->
     <div id="notification" class="notification" role="status" aria-live="polite">
         <span id="notification-message"></span>
@@ -731,32 +749,52 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero pt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-12 md:mb-0">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-slide-up">Hi, I'm <span class="text-primary">Nafe Abubaker</span></h1>
-                <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">
-                    <span class="typing-container inline-block">Computer Engineering Graduate</span>
-                </h2>
-                <p class="text-lg text-gray-600 mb-8 max-w-lg animate-fade-in">A dedicated Computer Engineering graduate from Birzeit University with hands-on experience through technical training, pursuing opportunities to contribute to impactful projects and further develop my expertise.</p>
-                <div class="flex space-x-4">
-                    <a href="#projects" class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-medium hover:opacity-90 transition">View Projects</a>
-                    <a href="#contact" class="px-8 py-3 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-white transition">Contact Me</a>
-                </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10 md:pt-20 md:pb-12">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-12 md:mb-0">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-slide-up">Hi, I'm <span class="text-primary">Nafe Abubaker</span></h1>
+            <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">
+              <span class="typing-container inline-block">Computer Engineering Graduate</span>
+            </h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-lg animate-fade-in">A dedicated Computer Engineering graduate from Birzeit University with hands-on experience through technical training, pursuing opportunities to contribute to impactful projects and further develop my expertise.</p>
+            <div class="flex space-x-4">
+              <a href="#projects" class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-medium hover:opacity-90 transition">View Projects</a>
+              <a href="#contact" class="px-8 py-3 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-white transition">Contact Me</a>
             </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative">
-                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                        <img src="https://i.ibb.co/9H9mDBP8/n.jpg" alt="Nafe Abubaker - Computer Engineering Graduate" class="w-full h-full object-cover">
-                    </div>
-                    <div class="absolute -top-4 -left-4 bg-primary text-white p-3 rounded-full">
-                        <i class="fas fa-code text-xl"></i>
-                    </div>
-                    <div class="absolute top-20 -right-10 bg-secondary text-white p-3 rounded-full floating">
-                        <i class="fas fa-star text-xl"></i>
-                    </div>
-                </div>
+          </div>
+
+          <div class="md:w-1/2 flex justify-center">
+            <div class="relative">
+              <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                <img src="https://i.ibb.co/9H9mDBP8/n.jpg" alt="Nafe Abubaker - Computer Engineering Graduate" class="w-full h-full object-cover">
+              </div>
+              <div class="absolute -top-4 -left-4 bg-primary text-white p-3 rounded-full">
+                <i class="fas fa-code text-xl"></i>
+              </div>
+              <div class="absolute top-20 -right-10 bg-secondary text-white p-3 rounded-full floating">
+                <i class="fas fa-star text-xl"></i>
+              </div>
             </div>
+          </div>
         </div>
+
+        <!-- Tech ticker (now inside hero and higher on the page) -->
+        <div id="tech-marquee"
+             class="mt-16 rounded-2xl bg-gray-100/80 dark:bg-gray-800/40 ring-1 ring-gray-200/70 dark:ring-white/10 px-4 overflow-x-hidden">
+          <div class="flex gap-10 whitespace-nowrap will-change-transform" id="tech-track">
+            <div class="flex items-center gap-10 text-gray-500 text-lg py-3">
+              <span>.NET</span><span>React</span><span>MongoDB</span><span>SQL</span>
+              <span>Python</span><span>YOLOv8</span><span>FastAPI</span>
+              <span>SystemVerilog</span><span>GitHub</span><span>Azure</span>
+            </div>
+            <div class="flex items-center gap-10 text-gray-500 text-lg py-3" aria-hidden="true">
+              <span>.NET</span><span>React</span><span>MongoDB</span><span>SQL</span>
+              <span>Python</span><span>YOLOv8</span><span>FastAPI</span>
+              <span>SystemVerilog</span><span>GitHub</span><span>Azure</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- About Section -->
@@ -1261,7 +1299,7 @@
         });
         
         // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
@@ -1339,6 +1377,13 @@
             } else {
                 backToTopBtn.classList.remove('show');
             }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
         
         // Copy email functionality
@@ -1494,6 +1539,86 @@
                 notification.classList.remove('show');
             }, 5000);
         }
+
+        // Scroll progress bar (more resilient)
+        (function () {
+          const bar = document.getElementById('scroll-progress');
+          if (!bar) return;
+
+          function getMaxScroll() {
+            const de = document.documentElement;
+            const b = document.body;
+            const docHeight = Math.max(
+              de.scrollHeight, b.scrollHeight,
+              de.offsetHeight, b.offsetHeight,
+              de.clientHeight, b.clientHeight
+            );
+            return Math.max(0, docHeight - window.innerHeight);
+          }
+
+          function setProgress() {
+            const max = getMaxScroll();
+            const pct = max ? (window.scrollY / max) * 100 : 0;
+            bar.style.width = pct + '%';
+          }
+
+          // update on all relevant moments
+          const tick = () => requestAnimationFrame(setProgress);
+          window.addEventListener('scroll', tick, { passive: true });
+          window.addEventListener('resize', tick);
+          window.addEventListener('load', tick);
+
+          if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(tick);
+          }
+
+          document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            img.addEventListener('load', tick);
+            img.addEventListener('error', tick);
+          });
+
+          setProgress();
+        })();
+
+        // ==== Tech ticker (infinite scroll) === =
+        (function () {
+          const marquee = document.getElementById('tech-marquee');
+          const track = document.getElementById('tech-track');
+          if (!marquee || !track) return;
+
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+          let x = 0, playing = true;
+
+          const io = new IntersectionObserver((entries) => {
+            playing = entries[0]?.isIntersecting ?? true;
+          }, { threshold: 0.1 });
+          io.observe(marquee);
+
+          function step() {
+            if (playing) {
+              x -= 0.7; // speed (px per frame)
+              track.style.transform = `translateX(${x}px)`;
+
+              const firstRow = track.firstElementChild;
+              if (firstRow && Math.abs(x) > firstRow.scrollWidth) x = 0;
+            }
+            requestAnimationFrame(step);
+          }
+
+          const tick2 = () => requestAnimationFrame(() => (x = x));
+          window.addEventListener('load', tick2);
+          if (document.fonts?.ready) document.fonts.ready.then(tick2);
+          document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            img.addEventListener('load', tick2);
+            img.addEventListener('error', tick2);
+          });
+
+          marquee.addEventListener('mouseenter', () => (playing = false));
+          marquee.addEventListener('mouseleave', () => (playing = true));
+
+          step();
+        })();
     </script>
 </body>
 </html>
