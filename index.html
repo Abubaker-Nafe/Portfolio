@@ -944,63 +944,105 @@
 
     <!-- Projects Section -->
     <section id="projects" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-primary">Projects</span></h2>
-                <div class="w-20 h-1 bg-primary mx-auto"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-primary">Projects</span></h2>
+        <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Project 1: PalStoreHub -->
+        <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="overflow-hidden">
+            <div class="bg-gray-200 flex items-center justify-center" style="aspect-ratio: 16/9;">
+                <img 
+                src="https://i.ibb.co/67yrLgCk/palstorehub.png" 
+                alt="PalStoreHub - Multi-vendor e-commerce platform"
+                class="w-full h-full object-contain"
+                loading="lazy"
+                />
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="overflow-hidden">
-                        <div class="project-image h-48 bg-gray-200">
-                            <img src="https://i.ibb.co/67yrLgCk/palstorehub.png" alt="PalStoreHub - Multi-vendor e-commerce platform" class="w-full h-full object-cover" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">PalStoreHub</h3>
-                        <p class="text-gray-600 mb-4">A full-stack, multi-vendor e-commerce platform that lets Palestinian entrepreneurs spin up their own online stores and list products from a single hub. Also allows tourists to discover various stores in palestine.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">React</span>
-                            <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">.Net</span>
-                            <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">MongoDB</span>
-                        </div>
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/Abubaker-Nafe/PalStoreHub" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">GitHub →</a>
-                            <a href="https://palstorehub.azurewebsites.net/" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">Website →</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="overflow-hidden">
-                        <div class="project-image h-48 bg-gray-200">
-                            <img src="https://i.ibb.co/p6CpxVnD/to-explain-from.png" alt="Traffic Light Management System" class="w-full h-full object-cover" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Traffic Light Management & Violation Detection</h3>
-                        <p class="text-gray-600 mb-4">Capstone project processing drone videos at 30 FPS using YOLOv8 + SORT tracking to detect vehicles and traffic-light states. Implemented congestion metrics, adaptive signal timing (25% queue reduction in tests), and red-light violation detection. Results were shown on a website built with FastAPI backend and React dashboard.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">Computer Vision</span>
-                            <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">YOLOv8</span>
-                            <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">MongoDB</span>
-                        </div>
-                        <a href="https://github.com/Abubaker-Nafe/Traffic-Management-and-Red-Light-Violation" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">GitHub →</a>
-                    </div>
-                </div>
-                
-
-                
             </div>
-            
-            <div class="text-center mt-12">
-                <a href="https://github.com/Abubaker-Nafe?tab=repositories" target="_blank" rel="noopener noreferrer" class="px-6 py-3 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-white transition">View All Projects</a>
+            <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">PalStoreHub</h3>
+            <p class="text-gray-600 mb-4">
+                A full-stack, multi-vendor e-commerce platform that lets Palestinian entrepreneurs spin up their own online stores and list products from a single hub. Also allows tourists to discover various stores in Palestine.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">React</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">.NET</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">MongoDB</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="https://github.com/Abubaker-Nafe/PalStoreHub" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">GitHub →</a>
+                <a href="https://palstorehub.azurewebsites.net/" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">Website →</a>
+            </div>
             </div>
         </div>
+
+        <!-- Project 2: Traffic Light Management -->
+        <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="overflow-hidden">
+            <div class="bg-gray-200 flex items-center justify-center" style="aspect-ratio: 16/9;">
+                <img 
+                src="https://i.ibb.co/p6CpxVnD/to-explain-from.png" 
+                alt="Traffic Light Management System"
+                class="w-full h-full object-contain"
+                loading="lazy"
+                />
+            </div>
+            </div>
+            <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Traffic Light Management & Violation Detection</h3>
+            <p class="text-gray-600 mb-4">
+                Capstone project processing drone videos at 30 FPS using YOLOv8 + SORT tracking to detect vehicles and traffic-light states. Implemented congestion metrics, adaptive signal timing (25% queue reduction in tests), and red-light violation detection. Results were shown on a website built with FastAPI backend and React dashboard.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">Computer Vision</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">YOLOv8</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">MongoDB</span>
+            </div>
+            <a href="https://github.com/Abubaker-Nafe/Traffic-Management-and-Red-Light-Violation" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">GitHub →</a>
+            </div>
+        </div>
+
+        <!-- Project 3: Flight Reservation -->
+        <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="overflow-hidden">
+            <div class="bg-gray-200 flex items-center justify-center" style="aspect-ratio: 16/9;">
+                <img 
+                src="https://i.ibb.co/0jbR8D59/Flight-Registration-Project.png" 
+                alt="Flight Reservation Manager — Android (Java)"
+                class="w-full h-full object-contain"
+                loading="lazy"
+                />
+            </div>
+            </div>
+            <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Flight Reservation Manager — Android (Java)</h3>
+            <p class="text-gray-600 mb-4">
+                Role-based app for airline admins and passengers. Admins create/edit flights, view availability, archives, and per-flight reservations. Passengers search/sort flights, book with class & extra bags, and see current/previous trips. Data seeded from a JSON API into SQLite; includes login “Remember me,” next-day flight reminders, and a playful plane animation.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">Android</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">Java</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm">SQLite</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="https://github.com/Abubaker-Nafe/Android-Project/tree/main" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">GitHub →</a>
+            </div>
+            </div>
+        </div>
+
+        </div>
+
+        <div class="text-center mt-12">
+        <a href="https://github.com/Abubaker-Nafe?tab=repositories" target="_blank" rel="noopener noreferrer" class="px-6 py-3 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-white transition">View All Projects</a>
+        </div>
+    </div>
     </section>
+
 
 
 
