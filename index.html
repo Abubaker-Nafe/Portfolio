@@ -697,7 +697,6 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
                     <a href="#home" class="nav-link text-gray-600 hover:text-primary">Home</a>
-                    <a href="#about" class="nav-link text-gray-600 hover:text-primary">About</a>
                     <a href="#skills" class="nav-link text-gray-600 hover:text-primary">Skills</a>
                     <a href="#projects" class="nav-link text-gray-600 hover:text-primary">Projects</a>
                     <a href="#education" class="nav-link text-gray-600 hover:text-primary">Education</a>
@@ -726,7 +725,6 @@
         <div id="mobile-menu" class="mobile-menu md:hidden bg-white">
             <div class="px-4 py-5 flex flex-col space-y-4">
                 <a href="#home" class="nav-link text-gray-600 hover:text-primary">Home</a>
-                <a href="#about" class="nav-link text-gray-600 hover:text-primary">About</a>
                 <a href="#skills" class="nav-link text-gray-600 hover:text-primary">Skills</a>
                 <a href="#projects" class="nav-link text-gray-600 hover:text-primary">Projects</a>
                 <a href="#education" class="nav-link text-gray-600 hover:text-primary">Education</a>
@@ -799,38 +797,50 @@
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">About <span class="text-primary">Me</span></h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-primary">Education / Experience</span></h2>
                 <div class="w-20 h-1 bg-primary mx-auto"></div>
             </div>
             
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-full">
-                    <h3 class="text-2xl font-bold mb-4">A Passionate Developer Ready for New Challenges</h3>
-                    <p class="text-gray-600 mb-6">
-                        Hello! I'm Nafe Abubaker, a dedicated Computer Engineering graduate from Birzeit University (B.Sc., July 2025). Having gained hands-on experience through internships and technical training at ASAL Technologies, I'm now pursuing entry-level opportunities to contribute to impactful projects, collaborate with multidisciplinary teams, and further develop my expertise in a professional setting.
-                    </p>
- 
+            <div class="max-w-3xl mx-auto">
+                <!-- Education Timeline -->
+                <div class="relative">
+                    <!-- Timeline item 1 -->
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">Birzeit University</h3>
+                                <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">2020-2025</span>
+                            </div>
+                            <p class="text-secondary font-medium mb-3">Bachelor of Computer Engineering</p>
+                            <p class="text-gray-600">Relevant coursework: Operating Systems, Database Systems, Data Structures, Object-Oriented Programming, Embedded Systems, Software Engineering.</p>
+                        </div>
+                    </div>
                     
-                    <div class="grid grid-cols-2 gap-6">
-                        <div>
-                            <p class="font-bold mb-1">Name:</p>
-                            <p class="text-gray-600">Nafe Abubaker</p>
+                    <!-- Timeline item 2 -->
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">ASAL Technologies</h3>
+                                <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">Sep 2024 - Feb 2025</span>
+                            </div>
+                            <p class="text-secondary font-medium mb-3">Backend Engineering Training Program</p>
+                            <p class="text-gray-600">Developed RESTful APIs using C#/.NET Core, integrated MongoDB for database operations, and collaborated with cross-functional teams to build scalable backend solutions.</p>
                         </div>
-                        <div>
-                            <p class="font-bold mb-1">Email:</p>
-                            <p class="text-gray-600">nafeabubaker@gmail.com</p>
-                        </div>
-                        <div>
-                            <p class="font-bold mb-1">From:</p>
-                            <p class="text-gray-600">Palestine, Ramallah</p>
-                        </div>
-                        <div>
-                            <p class="font-bold mb-1">Degree:</p>
-                            <p class="text-gray-600">B.S. Computer Engineering</p>
+                    </div>
+                    
+                    <!-- Timeline item 3 -->
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">ASAL Technologies</h3>
+                                <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">Feb 2025 - Jul 2025</span>
+                            </div>
+                            <p class="text-secondary font-medium mb-3">Data Engineering Training Program</p>
+                            <p class="text-gray-600">Built ETL pipelines with Python/Prefect, processed NDJSON/CSV data from AWS S3, implemented data validation with Pydantic, and created aggregation reports with MongoDB and Pandas dashboards.</p>
                         </div>
                     </div>
                 </div>
@@ -1044,60 +1054,6 @@
     </div>
     </section>
 
-
-
-
-    <!-- Education Section -->
-    <section id="education" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-primary">Education</span></h2>
-                <div class="w-20 h-1 bg-primary mx-auto"></div>
-            </div>
-            
-            <div class="max-w-3xl mx-auto">
-                <!-- Education Timeline -->
-                <div class="relative">
-                    <!-- Timeline item 1 -->
-                    <div class="timeline-item">
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold">Birzeit University</h3>
-                                <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">2020-2025</span>
-                            </div>
-                            <p class="text-secondary font-medium mb-3">Bachelor of Computer Engineering</p>
-                            <p class="text-gray-600">Relevant coursework: Operating Systems, Database Systems, Data Structures, Object-Oriented Programming, Embedded Systems, Software Engineering.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Timeline item 2 -->
-                    <div class="timeline-item">
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold">ASAL Technologies</h3>
-                                <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">Sep 2024 - Feb 2025</span>
-                            </div>
-                            <p class="text-secondary font-medium mb-3">Backend Engineering Training Program</p>
-                            <p class="text-gray-600">Developed RESTful APIs using C#/.NET Core, integrated MongoDB for database operations, and collaborated with cross-functional teams to build scalable backend solutions.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Timeline item 3 -->
-                    <div class="timeline-item">
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold">ASAL Technologies</h3>
-                                <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">Feb 2025 - Jul 2025</span>
-                            </div>
-                            <p class="text-secondary font-medium mb-3">Data Engineering Training Program</p>
-                            <p class="text-gray-600">Built ETL pipelines with Python/Prefect, processed NDJSON/CSV data from AWS S3, implemented data validation with Pydantic, and created aggregation reports with MongoDB and Pandas dashboards.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1144,7 +1100,6 @@
                 <!-- Contact Info -->
                 <div>
                     <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-                    <p class="text-gray-600 mb-8">I'm currently available for freelance work and full-time positions. Feel free to reach out to discuss potential opportunities or just to say hello!</p>
                     
                     <div class="space-y-6">
                         <div class="flex items-start">
@@ -1209,7 +1164,6 @@
                 
                 <div class="flex space-x-6">
                     <a href="#home" class="text-gray-400 hover:text-white">Home</a>
-                    <a href="#about" class="text-gray-400 hover:text-white">About</a>
                     <a href="#projects" class="text-gray-400 hover:text-white">Projects</a>
                     <a href="#contact" class="text-gray-400 hover:text-white">Contact</a>
                 </div>
