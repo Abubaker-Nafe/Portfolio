@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%236366f1%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 font-family=%22Arial,sans-serif%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22>NA</text></svg>">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why I optimized for recall, not F1 — Nafe Abubaker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root { --primary:#6366f1; --secondary:#8b5cf6; --dark:#1e293b; --light:#f8fafc; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Poppins',sans-serif; background:var(--light); color:var(--dark); line-height:1.75; }
+.wrap { max-width:720px; margin:0 auto; padding:80px 24px 120px; }
+.back { display:inline-block; color:var(--primary); text-decoration:none; font-weight:500; margin-bottom:40px; }
+.back:hover { text-decoration:underline; }
+h1 { font-family:'Raleway',sans-serif; font-size:2.25rem; line-height:1.2; margin-bottom:16px; color:var(--dark); }
+.meta { color:#64748b; font-size:0.9rem; margin-bottom:40px; }
+p { margin-bottom:1.4em; color:#334155; }
+code { background:#e2e8f0; padding:2px 6px; border-radius:4px; font-size:0.9em; font-family:'SF Mono',Menlo,monospace; color:var(--dark); }
+.divider { width:60px; height:3px; background:linear-gradient(90deg,var(--primary),var(--secondary)); margin:0 0 40px; border-radius:2px; }
+footer { margin-top:60px; padding-top:30px; border-top:1px solid #e2e8f0; color:#64748b; font-size:0.9rem; }
+footer a { color:var(--primary); text-decoration:none; }
+footer a:hover { text-decoration:underline; }
+@media (max-width:640px) { h1 { font-size:1.75rem; } .wrap { padding:50px 20px 80px; } }
+</style>
+</head>
+<body>
+<article class="wrap">
+<a href="index.html" class="back">← Back to portfolio</a>
+<h1>Why I optimized for recall, not F1, on an imbalanced education dataset</h1>
+<div class="meta">Nafe Abubaker · Capstone retrospective</div>
+<div class="divider"></div>
+
+<p>For my capstone I built a model to predict whether a US high school student would drop out, using the HSLS:09 longitudinal study — about 15,900 students tracked from 9th grade through 2016. The class split was roughly 5.5 to 1: most students don't drop out, which is good for the kids and bad for the model.</p>
+
+<p>The obvious trap with imbalanced data is that your baseline looks fine on accuracy and quietly fails at the one thing that matters. My first pass — plain Logistic Regression, Random Forest, XGBoost, LightGBM, all at the default 0.50 threshold — hit ROC-AUC around 0.78, which sounds respectable, and recall around 0.14, which is a disaster. The model was catching one out of every seven at-risk students and confidently telling everyone else they were fine.</p>
+
+<p>So I had to pick a metric that matched the actual use case. An early-warning system for school counselors isn't a precision problem. If the model flags a kid who turns out to be fine, a counselor has a slightly awkward check-in conversation. If the model misses a kid who drops out, nobody intervenes and a real person's life gets worse. False negatives are the expensive error. F1 treats precision and recall as equally important, and in this setting they aren't — not even close.</p>
+
+<p>Two changes moved the needle. First, class weighting. Just adding <code>class_weight='balanced'</code> to the baseline Logistic Regression pushed recall from 0.14 to 0.73 on the same features. That one flag was worth more than every model I tried afterward. The default threshold on imbalanced data was the actual bottleneck, not the model family or the features.</p>
+
+<p>Second, threshold tuning. On the tuned XGBoost, lowering the decision threshold from 0.50 to 0.30 pushed recall from 0.71 to 0.87 — catching 423 out of 489 at-risk students in the test set. Precision dropped to 0.24, which means roughly three out of four flagged students aren't actually at risk. In a normal classification problem that would be embarrassing. For a counselor with a caseload and a list of "kids to check in on," it's fine. You'd rather over-flag and triage than under-flag and lose people.</p>
+
+<p>The lesson I'd give my past self: pick the metric before you pick the model. If I had opened the project by writing down "we care about recall because false negatives are kids we don't help," I would have skipped two weeks of tuning F1 on baselines that were never going to work. The model is downstream of what you're actually trying to do, and "what you're actually trying to do" is almost never "maximize F1."</p>
+
+<p>Next iteration I'd spend real time on the 3,000+ raw columns in HSLS:09 before modeling. Most of the lift in this project came from weighting and thresholding, which suggests the feature set was leaving signal on the table.</p>
+
+<footer>
+<a href="index.html">← Back to portfolio</a> · <a href="https://github.com/Abubaker-Nafe/ibt-ggateway-capstone" target="_blank" rel="noopener">Project on GitHub</a>
+</footer>
+</article>
+</body>
+</html>
